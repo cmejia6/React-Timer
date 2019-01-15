@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Display from './Display'
 import Controls from './Controls'
+import '../styles/Timer.scss'
 
 class Timer extends Component {
     constructor(){
@@ -15,9 +16,10 @@ class Timer extends Component {
 
   render() {
     return (
-      <div>
-        <Display time={this.state.time}/>
-        
+      <div className="timer">
+        <Display time={this.state.time}>
+          <Controls />
+        </Display>
       </div>
     )
   }
