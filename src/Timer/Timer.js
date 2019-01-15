@@ -15,21 +15,38 @@ class Timer extends Component {
         }
 
         this.inputSeconds = this.inputSeconds.bind(this)
+        this.startTimer = this.startTimer.bind(this)
     }
 
   inputSeconds(secs){
     this.setState({seconds : secs})
   }
 
+  startTimer(){
+    if (this.state.status !== 'started'){
+      this.setState({status : 'started'})
+
+      this.interval = setInterval(() =>{
+
+        if (this.state.seconds > 0){
+          this.setState({seconds : this.state.seconds - 1})
+        } else {
+          this.setState({seconds : 0, status : null})
+          clearInterval(this.interval)
+        }
+        
+      }, 1000)
+    }
+  }
+
   render() {
     return (
       <div className="timer">
         <Display time={this.state.seconds}
-        //value={this.state.seconds}
         onChange={this.inputSeconds}
-        >
+        status={this.state.status}>
 
-          <Controls />
+          <Controls startTimer={this.startTimer}/>
         </Display>
       </div>
     )

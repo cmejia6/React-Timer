@@ -4,7 +4,8 @@ import '../styles/Controls.scss'
 const Controls = props => {
   return (
     <div>
-      <button type="button" className="buttons btn btn-success"> 
+      <button type="button" className="buttons btn btn-success"
+      onClick={props.startTimer}> 
         Start
       </button>
       

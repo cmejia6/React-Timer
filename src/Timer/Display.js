@@ -8,9 +8,11 @@ const Display = props => {
     return (
       <div className="display">
           {TimeUnits.secondsToClock(props.time)}
-            <input className="input" 
+            {props.status !== 'started'
+            && <input className="input" 
               onChange={event => props.onChange(event.target.value)}
-            />
+              value={props.status === 'started' ? '' : props.seconds}
+            />}
 
         {props.children}
       </div>
