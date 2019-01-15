@@ -1,15 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import TimeUnits from '../lib/TimeUnits'
 import '../styles/Display.scss'
 
 const Display = props => {
+
     return (
       <div className="display">
-        {props.time}
-        <input className="input"/>
+          {TimeUnits.secondsToClock(props.time)}
+            <input className="input" 
+              onChange={event => props.onChange(event.target.value)}
+            />
 
         {props.children}
-
       </div>
     )
 }

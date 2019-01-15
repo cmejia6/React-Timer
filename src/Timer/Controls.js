@@ -8,7 +8,9 @@ const Controls = props => {
         Start
       </button>
       
-      <button className="buttons  btn btn-primary">Stop</button>
+      <button className="buttons btn btn-primary">
+        Stop
+      </button>
     </div>
   )
 }
