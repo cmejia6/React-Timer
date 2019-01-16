@@ -10,7 +10,6 @@ class Timer extends Component {
 
         this.state ={
             seconds : 0,
-            //time : 660,
             status : 'stopped'
         }
 
@@ -72,7 +71,6 @@ class Timer extends Component {
 
 Timer.propType = {
   seconds : PropTypes.number.isRequired,
-  //time : PropTypes.time,
   status : PropTypes.string
 }
 

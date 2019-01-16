@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../styles/Controls.scss'
+import PropTypes from 'prop-types'
 
 const Controls = props => {
   return (
@@ -22,6 +23,10 @@ const Controls = props => {
       </button>
     </div>
   )
+}
+
+Controls.propTypes = {
+  status : PropTypes.string
 }
 
 export default Controls
