@@ -2,6 +2,7 @@
   "name": "timerc",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://cmejia6.github.io/React-Timer/",
   "dependencies": {
     "bootstrap": "^4.2.1",
     "bootstrap-loader": "^3.0.2",
