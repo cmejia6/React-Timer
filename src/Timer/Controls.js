@@ -4,13 +4,21 @@ import '../styles/Controls.scss'
 const Controls = props => {
   return (
     <div>
-      <button type="button" className="buttons btn btn-success"
+      {props.status !== 'started' 
+      && <button type="button" className="buttons btn btn-success"
       onClick={props.startTimer}> 
         Start
-      </button>
-      
-      <button className="buttons btn btn-primary">
+      </button>}
+
+      {props.status === 'started'
+      && <button type="button" className="buttons btn btn-secondary"
+      onClick={props.stopTimer}>
         Stop
+      </button>}
+      
+      <button className="buttons btn btn-primary"
+      onClick={props.resetTimer}>
+        Reset
       </button>
     </div>
   )

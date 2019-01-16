@@ -11,11 +11,13 @@ class Timer extends Component {
         this.state ={
             seconds : 0,
             //time : 660,
-            status : null
+            status : 'stopped'
         }
 
         this.inputSeconds = this.inputSeconds.bind(this)
         this.startTimer = this.startTimer.bind(this)
+        this.stopTimer = this.stopTimer.bind(this)
+        this.resetTimer = this.resetTimer.bind(this)
     }
 
   inputSeconds(secs){
@@ -39,14 +41,29 @@ class Timer extends Component {
     }
   }
 
+  stopTimer(){
+    this.setState({status : 'stopped'})
+    clearInterval(this.interval)
+  }
+
+  resetTimer(){
+    this.setState({seconds : 0, status : 'stopped'})
+  }
+
   render() {
     return (
       <div className="timer">
-        <Display time={this.state.seconds}
+        <Display 
+        time={this.state.seconds}
         onChange={this.inputSeconds}
         status={this.state.status}>
 
-          <Controls startTimer={this.startTimer}/>
+          <Controls 
+          startTimer={this.startTimer}
+          stopTimer={this.stopTimer}
+          resetTimer={this.resetTimer}
+          status={this.state.status}/>
+
         </Display>
       </div>
     )
